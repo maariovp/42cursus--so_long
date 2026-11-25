@@ -45,7 +45,7 @@ NAME		=	so_long
 CC			=	cc
 RM			=	rm -f
 
-CFLAGS		=	-Wall -Werror -Wextra
+CFLAGS		=	-Wall -Werror -Wextra -std=gnu17
 MLXFLAGS	=	-L. -lXext -L. -lX11
 
 .c.o:
@@ -54,7 +54,7 @@ MLXFLAGS	=	-L. -lXext -L. -lX11
 all: 			$(NAME)
 
 $(NAME): 		$(LIBFT) $(MINILIBX) $(GET_NEXT_LINE) $(FT_PRINTF) $(OBJECTS) $(HEADER)
-				$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) $(MINILIBX) $(GET_NEXT_LINE) $(FT_PRINTF) $(MLXFLAGS) -o $(NAME)
+				$(CC) $(CFLAGS) -no-pie $(OBJECTS) $(LIBFT) $(MINILIBX) $(GET_NEXT_LINE) $(FT_PRINTF) $(MLXFLAGS) -o $(NAME)
 
 $(LIBFT): 
 			$(MAKE) -C $(LIBFT_PATH)
